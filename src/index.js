@@ -1,5 +1,5 @@
 import { mjml2html } from 'mjml';
-import { loaderUtils } from 'loader-utils';
+import loaderUtils from 'loader-utils';
 
 export default function mjmlLoader(content) {
   this.cacheable();
@@ -18,7 +18,7 @@ export default function mjmlLoader(content) {
 
   const options = loaderUtils.getOptions(this);
 
-  if (options.raw) {
+  if (options && options.raw) {
     return result.html;
   }
 
