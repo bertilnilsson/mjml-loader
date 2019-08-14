@@ -1,4 +1,5 @@
 import { mjml2html } from 'mjml';
+import { loaderUtils } from 'loader-utils';
 
 export default function mjmlLoader(content) {
   this.cacheable();
@@ -13,6 +14,12 @@ export default function mjmlLoader(content) {
     error.code = 'MJML_INVALID';
 
     throw error;
+  }
+
+  const options = loaderUtils.getOptions(this);
+
+  if (options.raw) {
+    return result.html;
   }
 
   return `export default ${JSON.stringify(result.html)};`;
