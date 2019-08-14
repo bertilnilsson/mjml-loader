@@ -9,6 +9,10 @@ var _mjml = require('mjml');
 
 var _loaderUtils = require('loader-utils');
 
+var _loaderUtils2 = _interopRequireDefault(_loaderUtils);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function mjmlLoader(content) {
   this.cacheable();
 
@@ -24,7 +28,7 @@ function mjmlLoader(content) {
     throw error;
   }
 
-  const options = _loaderUtils.loaderUtils.getOptions(this);
+  const options = _loaderUtils2.default.getOptions(this);
 
   if (options.raw) {
     return result.html;
