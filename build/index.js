@@ -30,7 +30,7 @@ function mjmlLoader(content) {
 
   const options = _loaderUtils2.default.getOptions(this);
 
-  if (options.raw) {
+  if (options && options.raw) {
     return result.html;
   }
 
